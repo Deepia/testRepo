@@ -18,7 +18,7 @@ namespace StarIndiaHoliday.Controllers
         // GET: StarIndiaHoliday
         public ActionResult Index()
         {
-            ViewBag.active = "index5555555";
+            ViewBag.active = "index666666";
             try
             {
                 var list = new List<SqlParameter>();
