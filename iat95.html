@@ -1,0 +1,67 @@
+﻿<html>
+<head>
+    <script src="https://code.jquery.com/jquery-1.8.3.min.js"></script>
+    <script>
+        //var webMethod ="http://testadmin.hotspex.com/Packspex/Px.asmx/";                                // This Works!
+        var webMethod = "http://testapps.hotspex.com/EXT/Implicit/service.asmx/";
+        //var webMethod = "http://localhost:4487/service.asmx/";
+        function updateImplicitCate() {
+            var bookData = {
+                "updateBy": 64,
+                "projectID": 3,
+                "categoryAssets": [
+                  {
+                      "categoryID": 119,
+                      "categoryName": "aaa44",
+                      "categoryDesc": "ccccccccc44Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse suscipit lectus nec varius tincidunt.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse suscipit lectus nec varius tincidunt.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse suscipit lectus nec varius tincidunt.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse suscipit lectus nec varius tincidunt.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse suscipit lectus nec varius tincidunt.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse suscipit lectus nec varius tincidunt.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse suscipit lectus nec varius tincidunt.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse suscipit lectus nec varius tincidunt.",
+                      "assets": [
+                        {
+                            "assetID": 1,
+                            "assetDesc": "aaa44"
+                        },
+                        {
+                            "assetID": 2,
+                            "assetDesc": "bbb44"
+                        }
+                      ]
+                  },
+                  {
+                      "categoryID": 120,
+                      "categoryName": "bbb44",
+                      "categoryDesc": "ddddddddd44Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse suscipit lectus nec varius tincidunt.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse suscipit lectus nec varius tincidunt.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse suscipit lectus nec varius tincidunt.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse suscipit lectus nec varius tincidunt.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse suscipit lectus nec varius tincidunt.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse suscipit lectus nec varius tincidunt.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse suscipit lectus nec varius tincidunt.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse suscipit lectus nec varius tincidunt.",
+                      "assets": [
+                        {
+                            "assetID": 3,
+                            "assetDesc": "ccc44"
+                        },
+                        {
+                            "assetID": 4,
+                            "assetDesc": "ddd44"
+                        }
+                      ]
+                  }
+                ]
+            }
+
+            var StringifiedContent = JSON.stringify({ 'userdata': bookData });
+            $.ajax({
+                type: "POST",
+                url: webMethod + "updateImplicitCate",//Path to webservice
+                data: StringifiedContent,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (msg) {
+                    alert(JSON.stringify(msg));
+                }
+            });
+        }
+    </script>
+
+    <title></title>
+</head>
+<body>
+    <button onclick="updateImplicitCate()">Start</button>
+    <div id="div1"></div>
+</body>
+</html>
+

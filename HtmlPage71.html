@@ -1,0 +1,107 @@
+﻿<html>
+<head>
+    <script src="https://code.jquery.com/jquery-1.8.3.min.js"
+            crossorigin="anonymous"></script>
+    <script>
+        function RunDemo() {
+
+            //var userData = {
+            //    cipID: 2,
+            //    email: "deepak.kumar@sapple.co.in",
+            //    filters: [10, 11, 12],
+            //    heatmap: true,
+            //    heatmaptypes: [1,2,3,4,5,6],
+            //    greyBG: true,
+            //    facingReport: true,
+            //    topLineReport: true,
+            //    shelfComparison: true,
+            //    keyProductReport: true,
+            //    clientBrands: ["brandA", "brandB"],
+            //    timingOptions:[1,2,3,4]
+            //};
+            //vivian.liu@hotspex.com
+
+            var userData =
+            //{
+            //    cipID: 2,
+            //    email: "deepak.kumar@sapple.co.in",
+            //    filters: [10,11,12],
+            //    heatmap: false,
+            //    heatmaptypes: [2,6],
+            //    greyBG: true,
+            //    facingReport: false,
+            //    topLineReport: true,
+            //    keyProductReport: false,
+            //    clientBrands: [],
+            //    timingOptions: [1,2,3,4]
+            //};
+
+            //{
+            //    "cipID": 36,
+            //    "email": "deepak.kumar@sapple.co.in",
+            //    "filters": [120, 121],
+            //    "heatmap": false,
+            //    "heatmaptypes": [1, 2, 3],
+            //    "greyBG": false,
+            //    "facingReport": true,
+            //    "topLineReport": true,
+            //    "keyProductReport": false,
+            //    "clientBrands": ["IVORY", "Tide", "Tide%20Simply"],
+            //    "timingOptions": [1, 2, 3, 4]
+            //}
+            {
+                "cipID": 2,
+                    "email": "vivian.liu@hotspex.com",
+                    "filters": [10],
+                    "heatmap": false,
+                    "heatmaptypes": [1, 2, 3],
+                "greyBG": false,
+                "facingReport": false,
+                "topLineReport": true,
+                "keyProductReport": false,
+                "clientBrands": [],
+                "timingOptions": [1, 2, 3, 4]
+            }
+
+            //{
+            //    "cipID": 36,
+            //    "email": "deepak.kumar@sapple.co.in",
+            //    "filters": [120, 121],
+            //    "heatmap": false,
+            //    "heatmaptypes": [1, 2, 3],
+            //    "greyBG": false,
+            //    "facingReport": false,
+            //    "topLineReport": true,
+            //    "keyProductReport": false,
+            //    "clientBrands": ["IVORY", "Tide", "Tide%20Simply"],
+            //    "timingOptions": [1, 2, 3, 4]
+            //}
+
+            
+
+            var webMethod ="http://testadmin.hotspex.com/Packspex/Px.asmx/";                                // This Works!
+            //var webMethod = "http://localhost:54837/PX.asmx/";
+        $.ajax({
+            type: "POST",
+            url: webMethod + "ShopspexReportExport",
+            data: JSON.stringify({"SREObj": userData}),
+            contentType: "application/json",
+            dataType: "json",
+
+            success: function (msg) {
+                console.log(JSON.stringify(msg));
+            },
+            error: function(e){
+            }
+        });
+    }
+    </script>
+
+    <title></title>
+</head>
+<body>
+    <button onclick="RunDemo()">Start</button>
+    <div id="div1"></div>
+</body>
+</html>
+

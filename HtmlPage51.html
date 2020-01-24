@@ -1,0 +1,62 @@
+﻿<html>
+<head>
+    <script src="https://code.jquery.com/jquery-1.8.3.min.js"
+            crossorigin="anonymous"></script>
+    <script>
+        function RunDemo() {
+
+
+
+            var userData = {
+                "spexID": 12345,
+                
+                "selections": [
+                    {
+                        "areaID": "001001",
+                        "groupID": 25,
+                        "correctness": 3,
+                        "duration": 8.91,
+                        "clickOrder": 1,
+                        "xPos": 111,
+                        "yPos": 111
+                    },
+                    {
+                        "areaID": "003001",
+                        "groupID": 25,
+                        "correctness": 1,
+                        "duration": 12.41,
+                        "clickOrder": 2,
+                        "xPos": 111,
+                        "yPos": 111
+                    }
+                ]
+            };
+
+
+
+            var webMethod = "http://testapps.hotspex.com/extn/packspexws/pxservicefe.asmx/";
+            //var webMethod = "http://localhost:33267/PxServiceFE.asmx/";
+            $.ajax({
+                type: "POST",
+                url: webMethod + "SaveTFUserData",
+                data: JSON.stringify({ "TFUserData": userData }),
+                contentType: 'application/json',
+                async: false,
+                dataType: "json",
+
+                success: function (msg) {
+                    console.log(JSON.stringify(msg));
+                },
+                error: function(e){
+                }
+            });
+        }
+    </script>
+
+    <title></title>
+</head>
+<body>
+    <button onclick="RunDemo()">Start</button>
+    <div id="div1"></div>
+</body>
+</html>

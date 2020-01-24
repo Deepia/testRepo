@@ -1,0 +1,131 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>packws FT Test</title>
+</head>
+
+<body>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+    <script>
+
+        // const axios = require('axios');  http://localhost:3757/kyzappservice.svc/    http://map-staging.hotspex.com/KYZAppService.svc/
+        let api = axios.create({
+            baseURL: 'http://map-staging.hotspex.com/KYZAppService.svc/',
+            timeout: 150000,
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            }
+        });
+
+
+
+        //api
+        //  .get('GetCoherencyList')
+        //  .then((response) => {
+        //    console.log('getcoherencylist: == ' + json.stringify(response))
+        //  }, (error) => {
+        //    console.log('fail' + error)
+        //  })
+
+
+        //ProjectID	1151
+        //StimulusIDs
+        //DemographicIDs
+        //HeatmapIDs	33252,33270,33271,33253
+        //BackgroundImage	Legend_V_2.png
+        //AttributeLabels	false
+        //excelExport	false
+        //Legend	false
+        //EmailAddress	amitk.mishra@sapple.co.in
+        //languageID	1
+        //onlyDriverLabels	false
+        //fileType	ppt
+        //heatType	4
+        //multiplier	1
+        //fileName	BrandEquityTracker_[timestamp]
+        //primaryHeatmapID	33251
+        //zones
+        //attributesIDs
+        //useScore	true
+        //fontSize	14
+        //fontFamily	Century+Gothic
+        //topNScore	0
+        //minScore	0
+        //ringIDs
+        //sig	0
+        //sigLower	1
+        //----------------------------------------------
+        //ProjectID: 998,
+        //    HeatmapIDs: "48116,48117,48118,48119,48120,48121,48122,48123,48124,48125,48126,48127,48128,48129,48130,48131,48132,48133,48134,48135,48136",
+        //BackgroundImage: "Legend_V_2.png",
+        //AttributeLabels: true,
+        //Legend: false,
+        //languageID: 1,
+        //onlyDriverLabels: false,
+        //fileType: "zip",
+        //heatType: 1,
+        //multiplier: 1,
+        //fileName: "BrandEquityTracker_[timestamp]",
+        //primaryHeatmapID: "",
+        //zones: ""
+        //-------------------------------------------
+
+        api.post('ReadProjectExportSettingV2', {
+            //params: { //For get uncomment it
+                "ProjectID": 1346
+            //} //For get uncomment it
+        })
+          .then((response) => {
+              //console.log(response.ExcelDataExportResult.data);
+              //console.log(response.data.ExcelDataExportResult.data.FilePath);
+              var obj = JSON.parse(response.data.ReadProjectExportSettingV2Result.data);
+              console.log(response.data.ReadProjectExportSettingV2Result.data);
+              //window.location = obj.FilePath;
+          }
+        //api.post('ExportFlatMapV2', {
+        //    //params: { //For get uncomment it
+        //    "ProjectID": 1346,
+        //    "HeatmapIDs": "48164,48165",
+        //    "BackgroundImage": "Legend_V_2.png",
+        //    "languageID": 1,
+        //    "AttributeLabels": true,
+        //    "Legend": false,
+        //    "onlyDriverLabels": false,
+        //    "fileType": "ppt",
+        //    "heatType": 3,
+        //    "multiplier": 1,
+        //    "fileName": "Test_[timestamp]",
+        //    "primaryHeatmapID": "48163",
+        //    "zones": ""
+
+        //    //}
+        //})
+        //  .then((response) => {
+        //      //console.log(response.ExcelDataExportResult.data);
+        //      //console.log(response.data.ExcelDataExportResult.data.FilePath);
+        //      var obj = JSON.parse(response.data.ExportFlatMapV2Result.data);
+        //      console.log(response.data.ExportFlatMapV2Result.data);
+        //      //window.location = obj.FilePath;
+        //  }
+        , (error) => {
+
+          }).catch(error=> {
+              console.log('fail2: ' + error)
+          });
+
+
+
+
+
+
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/assets/css/foundation.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/app.css">
+
+    <link rel="import" href="/import/header.html">
+
+    <title>Awesome Hotspex Home</title>
+  </head>
+  <body>
+
+    <div class="topSection"></div>
+
+    <section class="filterManage">
+      <div class="cipTitle">
+        <span>CIP 1: 313398_APDO Target Shelf Test</span>
+        <button type="button" class="button small back secondary" onclick="location.href='/pages/project/projectList.html'">back to list</button>        
+      </div>
+      <div class="options">
+        <form method="post">
+          <label>Upload Filter File: </label><input type="file" id="filterFile" name="filterFile">
+          <input type="submit" class="button small secondary" value="Upload Filter">
+        </form>               
+      </div>
+    </section>
+
+    <main>
+      <table>
+        <thead>
+          <tr>
+            <th>Filter ID</th>
+            <th>Filter Name</th>
+            <th>User Counter</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>General Population</td>
+            <td>300</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+
+    <script src="/assets/js/vendor/jquery.js"></script>
+    <script src="/assets/js/vendor/what-input.js"></script>
+    <script src="/assets/js/vendor/foundation.js"></script>
+    <script src="/assets/js/app.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,74 @@
+﻿<html>
+<head>
+    <script src="https://code.jquery.com/jquery-1.8.3.min.js"
+            crossorigin="anonymous"></script>
+    <script>
+
+        //{
+        //        cipID: 2,
+        //        greyBG: false,
+        //        email: "deepak.kumar@sapple.co.in",
+        //        filters: [10,11,12],
+        //        clickOptions: [1,2,3,4],
+        //        heatmap: false,
+        //        clickmap: false,
+        //        clickplotSize: 7,
+        //        clickMixedup: false,
+        //        likeColor: '#00ff00',
+        //        dislikeColor: '#ff0000',
+        //        totalBasedPercentage: true,
+        //        zoneBasedPercentage: true,
+        //        verbatim: true,
+        //        verbatimByFilter: false,
+        //        googleTranslation: false,
+        //        translateTo:""
+        //    };
+        function RunDemo() {
+
+
+            var clickspexReport =
+            {
+                cipID: 16,
+                clickMixedup: true,
+                clickOptions: [1],
+                clickmap: true,
+                clickplotSize: 7,
+                dislikeColor: "#ff0000",
+                email: "deepak.kumar@sapple.co.in",
+                filters: [109, 110],
+                googleTranslation: false,
+                greyBG: false,
+                heatmap: true,
+                likeColor: "#00ff00",
+                totalBasedPercentage: false,
+                translateTo: "",
+                verbatim: true,
+                verbatimByFilter: true,
+                zoneBasedPercentage: false
+            };
+
+            var webMethod ="http://testadmin.hotspex.com/Packspex/Px.asmx/";                                // This Works!
+            //var webMethod = "http://localhost:54837/PX.asmx/";
+        $.ajax({
+            type: "POST",
+            url: webMethod + "ClickspexReportExport",
+            data: JSON.stringify({ "input": clickspexReport }),
+            contentType: "application/json",
+            dataType: "json",
+
+            success: function (msg) {
+                console.log(JSON.stringify(msg));
+            },
+            error: function(e){
+            }
+        });
+    }
+    </script>
+
+    <title></title>
+</head>
+<body>
+    <button onclick="RunDemo()">Start</button>
+    <div id="div1"></div>
+</body>
+</html>

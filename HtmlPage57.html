@@ -1,0 +1,74 @@
+﻿<html>
+<head>
+    <script src="https://code.jquery.com/jquery-1.8.3.min.js"
+            crossorigin="anonymous"></script>
+    <script>
+        function RunDemo() {
+
+            
+
+            var userData = {
+               
+                "cipID": 1,
+                "location": 2,
+                "shelf": [
+                          "cell1_1_priced.jpg",
+                ],
+                "pack": [
+                ],
+                "inSurvey": {
+                    "thumb": [
+                    ],
+                    "main": [
+                    ],
+                    "popup": [
+                    ]
+                },
+                "implicits": [
+                ],
+                "flo": [
+                ],
+                "conjoint": [
+                ],
+                "magazine": [
+                ],
+                "audio": [
+                    "1.mp3"
+                ],
+                "video": [
+                    "1.mp4",
+                    "2.mp4"
+                ]
+                
+            };
+
+
+
+
+
+            var webMethod = "http://testapps.hotspex.com/extn/packspexws/pxservicefe.asmx/";
+            //var webMethod = "http://localhost:33267/PxServiceFE.asmx/";
+            $.ajax({
+                type: "POST",
+                url: webMethod + "GenerateImages",
+                data: JSON.stringify({ "createImage": userData }),
+                contentType: 'application/json',
+                async: false,
+                dataType: "json",
+
+                success: function (msg) {
+                    console.log(JSON.stringify(msg));
+                },
+                error: function(e){
+                }
+            });
+        }
+    </script>
+
+    <title></title>
+</head>
+<body>
+    <button onclick="RunDemo()">Start</button>
+    <div id="div1"></div>
+</body>
+</html>

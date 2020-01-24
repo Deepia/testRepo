@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-1.8.3.min.js"></script>
+    <script>
+        //var webMethod ="http://testadmin.hotspex.com/Packspex/Px.asmx/";                                // This Works!
+        //var webMethod = "http://testapps.hotspex.com/EXT/Implicit/service.asmx/";
+        var webMethod = "http://localhost:4487/service.asmx/";
+        function updateGnatPrime() {
+            var bookData = {
+                projectID: 3,
+                updateBy: 64,
+                assets: [
+                  {
+                      assetDesc: 'AAA',
+                      assetID: 0,
+                      assetType: 1,
+                      assetURL: 'https://via.placeholder.com/350x150'
+                  },
+                  {
+                      assetDesc: 'UUU',
+                      assetID: 100003,
+                      assetType: 2,
+                      assetURL: 'https://via.placeholder.com/350x150'
+                  }
+                ]
+            }
+            var StringifiedContent = JSON.stringify({ 'userdata': bookData });
+            $.ajax({
+                type: "POST",
+                url: urlStaging + "updateGnatPrime",//Path to webservice
+                data: StringifiedContent,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (msg) {
+                    alert(JSON.stringify(msg));
+                }
+            });
+        }
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+
+

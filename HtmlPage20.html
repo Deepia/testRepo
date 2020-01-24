@@ -1,0 +1,53 @@
+﻿<html>
+<head>
+    <script src="https://code.jquery.com/jquery-1.8.3.min.js"
+            crossorigin="anonymous"></script>
+    <script>
+        function RunDemo() {
+
+
+
+            var userData = {
+                "eyespexID": 55,
+                "duration": 11,
+                "maxClick": 0,
+                "isTimefind": false,
+                "showCountdown": false,
+                "mgType": "C",
+                "mgSize": 200,
+                "lastUpdatedBy": 47
+            };
+
+
+
+
+
+
+
+            var webMethod = "http://testadmin.hotspex.com/Packspex/Px.asmx/";
+            //var webMethod = "http://localhost:54837/PX.asmx/";
+            $.ajax({
+                type: "POST",
+                url: webMethod + "updateEyespex",
+                data: JSON.stringify({ "Eyespex": userData }),
+                contentType: 'application/json',
+                async: false,
+                dataType: "json",
+
+                success: function (msg) {
+                    console.log(JSON.stringify(msg));
+                },
+                error: function(e){
+                }
+            });
+        }
+    </script>
+
+    <title></title>
+</head>
+<body>
+    <button onclick="RunDemo()">Start</button>
+    <div id="div1"></div>
+</body>
+</html>
+

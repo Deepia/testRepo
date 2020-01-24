@@ -1,0 +1,93 @@
+﻿<html>
+<head>
+    <script src="https://code.jquery.com/jquery-1.8.3.min.js"
+            crossorigin="anonymous"></script>
+    <script>
+        function RunDemo() {
+
+
+            var clickspexReport =
+            //{
+            //    "cipID": 2,
+            //    "greyBG": false,
+            //    "email": "deepak.kumar@sapple.co.in",
+            //    "filters": [10, 11, 12],
+            //    "heatmap": false,
+            //    "heatmaptypes": [1,2],
+            //    "topLine": true,
+            //    "keyProduct": false,
+            //    "pack": true,
+            //    "clientBrands": ["Keurig","Mr. Coffee"]
+            //};
+            {
+               cipID: 2,
+                greyBG: false,
+                email: "deepak.kumar@sapple.co.in",
+                filters: [10],
+                clickOptions: [1],
+                heatmap: false,
+                clickmap: true,
+                clickplotSize: 7,
+                likeColor: '#00ff00',
+                dislikeColor: '#ff0000',
+                totalBasedPercentage: true,
+                zoneBasedPercentage: true,
+                verbatim: false,
+                verbatimByFilter: false,
+                googleTranslation: true,
+                combines: ["42,43"]
+		//combines: ["89,88","90,88"]
+            }
+
+            //{
+            //    "cipID": 14,
+            //    "email": "vivian.liu@hotspex.com",
+            //    "filters": [85, 84, 86],
+            //    "greyBG": false,
+            //    "clickOptions": [1],
+            //    "heatmap": false,
+            //    "clickmap": false,
+            //    "clickplotSize": 7,
+            //    "clickMixedup": true,
+            //    "likeColor": "#00ff00",
+            //    "dislikeColor": "#ff0000",
+            //    "totalBasedPercentage": true,
+            //    "zoneBasedPercentage": true,
+            //    "verbatim": false,
+            //    "verbatimByFilter": true,
+            //    "googleTranslation": false,
+            //    "translateTo": ""
+            //}
+
+
+
+          
+
+
+
+
+            var webMethod ="http://testadmin.hotspex.com/Packspex/Px.asmx/";                                // This Works!
+            //var webMethod = "http://localhost:54837/PX.asmx/";
+        $.ajax({
+            type: "POST",
+            url: webMethod + "ClickspexReportExport",  //EyetrackingReportExporty
+            data: JSON.stringify({ "input": clickspexReport }),
+            contentType: "application/json",
+            dataType: "json",
+
+            success: function (msg) {
+                console.log(JSON.stringify(msg));
+            },
+            error: function(e){
+            }
+        });
+    }
+    </script>
+
+    <title></title>
+</head>
+<body>
+    <button onclick="RunDemo()">Start</button>
+    <div id="div1"></div>
+</body>
+</html>

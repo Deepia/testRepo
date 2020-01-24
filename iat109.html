@@ -1,0 +1,46 @@
+﻿<html>
+<head>
+    <script src="https://code.jquery.com/jquery-1.8.3.min.js"></script>
+    <script>
+        function RunDemo() {
+
+            //var webMethod ="http://testadmin.hotspex.com/Packspex/Px.asmx/";                                // This Works!
+            var webMethod = "http://localhost:4487/service.asmx/";
+
+            //$.ajax({
+            //    type: "POST",
+            //    url: "http://localhost:4487/service.asmx/ExportUserdatabyCIP",
+            //    data: { cipID: 2 },//,email: 'deepak.kumar@sapple.co.in'
+            //    contentType: "application/json; charset=utf-8",
+            //    dataType: 'json',
+            //    success: function (data) {
+            //        console.log("data: " + JSON.stringify(data));
+            //    },
+            //    error: function (XMLHttpRequest, textStatus, errorThrown) {
+            //        alert("BrandMappingExport error: " + XMLHttpRequest.statusText);
+            //    }
+            //});
+            $.ajax({
+                url: webMethod + "getImplicitProjects",
+                contentType: "application/json; charset=utf-8",
+                data: { cipID: 1 },
+                type: "GET",
+                dataType: "jsonp",
+                processData: true,
+                success: function (data, status, jqXHR) {
+                    alert(JSON.stringify(data));
+                },
+                error: function (xhr) {
+                    alert(status);
+                }
+            });
+        }
+    </script>
+
+    <title></title>
+</head>
+<body>
+    <button onclick="RunDemo()">Start</button>
+    <div id="div1"></div>
+</body>
+</html>

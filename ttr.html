@@ -1,0 +1,77 @@
+﻿<!--<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>ws Test</title>
+</head>
+
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+    <script>
+        function RunDemo() {
+            //var input = [{ "lName": "http://d3i6anyjmsyq23.cloudfront.net/toyota/medium/103.jpg", "comment": "aaa", "spexID": "388" }, { "lName": "http://d3i6anyjmsyq23.cloudfront.net/toyota/medium/20.jpg", "comment": "bbb", "spexID": "388" }, { "lName": "http://d3i6anyjmsyq23.cloudfront.net/toyota/medium/80.jpg", "comment": "ccc", "spexID": "388" }];
+
+
+            
+
+            $.ajax({
+                url: "http://localhost:3757/wshotspex.asmx/TFCorrectnessExport",
+                //data: "{'input':" + JSON.stringify(input) + "}",
+                data: "{'email':" + JSON.stringify("amitmisk") + "}",
+                dataType: "json",
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    console.log("data: == " + data.d);
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    console.log("JSON + POST error");
+                    //alert(XMLHttpRequest.statusText);
+                }
+            });
+        }
+    </script>
+    <button onclick="RunDemo()">Start</button>
+</body>
+</html>-->
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>ws Test</title>
+</head>
+
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+    <script>
+        function RunDemo() {
+        var input = [{ "lName": "http://d3i6anyjmsyq23.cloudfront.net/toyota/medium/103.jpg", "comment": "aaa", "spexID": "388" }, { "lName": "http://d3i6anyjmsyq23.cloudfront.net/toyota/medium/20.jpg", "comment": "bbb", "spexID": "388" }, { "lName": "http://d3i6anyjmsyq23.cloudfront.net/toyota/medium/80.jpg", "comment": "ccc", "spexID": "388" }];
+
+
+       
+
+        $.ajax({
+            url: "http://localhost:3757/wshotspex.asmx/SavePIXImages",
+                data: "{'input':" + JSON.stringify(input) + "}",
+                dataType: "json",
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    console.log("data: == " + data.d);
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    console.log("JSON + POST error");
+                    //alert(XMLHttpRequest.statusText);
+                }
+            });
+        }
+
+    </script>
+    <button onclick="RunDemo()">Start</button>
+</body>
+</html>

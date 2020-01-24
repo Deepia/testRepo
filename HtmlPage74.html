@@ -1,0 +1,63 @@
+﻿<html>
+<head>
+    <script src="https://code.jquery.com/jquery-1.8.3.min.js"
+            crossorigin="anonymous"></script>
+    <script>
+        function RunDemo() {
+
+
+            var input =
+            {
+                "cipid": 36,
+                "email": "deepak.kumar@sapple.co.in",
+                "filters": [121],
+                "greybg": false,
+                "heatmap": false,
+                "heatmaptypes": [1],
+                "topline": false,
+                "keyproduct": true,
+                "pack": false,
+                "clientbrands": []
+            };
+            //    {
+            //    "cipID": 2,
+            //    "greyBG": false,
+            //    "email": "vivian.liu@hotspex.com",
+            //    "filters": [10, 12],
+            //    "heatmap": false,
+            //    "heatmaptypes": [],
+            //    "topLine": false,
+            //    "keyProduct": true,
+            //    "pack": false,
+            //    "clientBrands": []
+            //};
+
+            var webMethod ="http://testadmin.hotspex.com/Packspex/Px.asmx/";                                // This Works!
+            //var webMethod = "http://localhost:54837/PX.asmx/";
+        $.ajax({
+            type: "POST",
+            url: webMethod + "EyetrackingReportExport",
+            //url: webMethod + "ShopspexReportExport",
+            data: JSON.stringify({ "input": input }),
+            //data: JSON.stringify({ "SREObj": input }),
+            contentType: "application/json",
+            dataType: "json",
+
+            success: function (msg) {
+                console.log(JSON.stringify(msg));
+            },
+            error: function(e){
+            }
+        });
+    }
+    </script>
+
+    <title></title>
+</head>
+<body>
+    <button onclick="RunDemo()">Start1</button>
+    <div id="div1"></div>
+</body>
+</html>
+
+

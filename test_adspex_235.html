@@ -1,0 +1,59 @@
+﻿<html>
+<head>
+    <script src="https://code.jquery.com/jquery-1.8.3.min.js"
+            crossorigin="anonymous"></script>
+    <script>
+        function RunDemo() {
+            var inputObj2 = {
+                "ProjectID": 1111,
+                "StimulusIDs": "",
+                "DemographicIDs": "",
+                "HeatmapIDs": "30265",
+                "BackgroundImage": "Legend_V_2.png",
+                "AttributeLabels": false,
+                "excelExport": false,
+                "Legend": false,
+                "EmailAddress": 'Vivian.Liu@hotspex.com',
+                "languageID": 1,
+                "onlyDriverLabels": false,
+                "fileType": "ppt",
+                "heatType": 4,
+                "multiplier": 1,
+                "fileName": "TADA-PackageTest_[timestamp]",
+                "primaryHeatmapID": "",
+                "zones": "",
+                "attributesIDs": "102,110,121,148,156,160,183,184,223,264,168,270",
+                "useScore": true,
+                "fontSize": 14,
+                "fontFamily": "Arial",
+                "topNScore": 0,
+                "minScore": 0,
+                "ringIDs": "",
+                "sig": 1,
+                "sigLower": 1
+            };
+
+            $.ajax({
+                type: "GET",
+                url: "http://localhost:3757/KYZAppService.svc/HeatmapBulkImageExport",
+                data: inputObj2,
+                contentType: "application/json; charset=utf-8",
+                dataType: "jsonp",
+                processdata: true,
+                success: function (data) {
+                    console.log("HeatmapBulkImageExport: == " + JSON.stringify(data));
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    console.log("error wsGetQAttributeList");
+                }
+            });
+    }
+    </script>
+
+    <title></title>
+</head>
+<body>
+    <button onclick="RunDemo()">Start</button>
+    <div id="home"></div>
+</body>
+</html>

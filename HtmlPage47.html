@@ -1,0 +1,106 @@
+﻿<html>
+<head>
+    <script src="https://code.jquery.com/jquery-1.8.3.min.js"
+            crossorigin="anonymous"></script>
+    <script>
+        function RunDemo() {
+
+
+            //var jsonObjects = {
+            //    "spexID": 12345,
+            //    "shelfID": 13,
+            //    "selections": [
+            //    {
+            //        "areaID": "001001",
+            //        "isKeyProduct": true,
+            //        "quantity": 1,
+            //        "actionCode": 1,
+            //        "isDelete": false,
+            //        "isFlip": true,
+            //        "timeOnProduct": 2.12,
+            //        "timeinTool": 21.53,
+            //        "imageArray": "0,1",
+            //        "clickOrder": 1,
+            //        "xPos": 331,
+            //        "yPos": 238
+            //    },
+            //    {
+            //        "areaID": "001005",
+            //        "isKeyProduct": false,
+            //        "quantity": 2,
+            //        "actionCode": 1,
+            //        "isDelete": true,
+            //        "isFlip": false,
+            //        "timeOnProduct": 3.12,
+            //        "timeinTool": 34.53,
+            //        "imageArray": "0",
+            //        "clickOrder": 2,
+            //        "xPos": 331,
+            //        "yPos": 238
+            //    }
+            //    ]};
+
+            var userData = {
+                "spexID": 12345,
+                
+                "selections": [
+                    {
+                        "areaID": "001001",
+                        "shelfID": 13,
+                        "isKeyProduct": true,
+                        "quantity": 1,
+                        "actionCode": 1,
+                        "isDelete": false,
+                        "isFlip": true,
+                        "timeOnProduct": 2.12,
+                        "timeinTool": 21.53,
+                        "imageArray": "0,1",
+                        "clickOrder": 1,
+                        "xPos": 331,
+                        "yPos": 238
+                    },
+                    {
+                        "areaID": "001005",
+                        "shelfID": 13,
+                        "isKeyProduct": false,
+                        "quantity": 2,
+                        "actionCode": 1,
+                        "isDelete": true,
+                        "isFlip": false,
+                        "timeOnProduct": 3.12,
+                        "timeinTool": 34.53,
+                        "imageArray": "0",
+                        "clickOrder": 2,
+                        "xPos": 331,
+                        "yPos": 238
+                    }
+                ]
+            }
+
+
+            var webMethod = "http://testapps.hotspex.com/extn/packspexws/pxservicefe.asmx/";
+            //var webMethod = "http://localhost:33267/PxServiceFE.asmx/";
+            $.ajax({
+                type: "POST",
+                url: webMethod + "SaveShopspexUserData",
+                data: JSON.stringify({ "ShopspexUserData": userData }),
+                contentType: 'application/json',
+                async: false,
+                dataType: "json",
+
+                success: function (msg) {
+                    console.log(JSON.stringify(msg));
+                },
+                error: function(e){
+                }
+            });
+        }
+    </script>
+
+    <title></title>
+</head>
+<body>
+    <button onclick="RunDemo()">Start</button>
+    <div id="div1"></div>
+</body>
+</html>

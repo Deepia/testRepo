@@ -1,0 +1,47 @@
+﻿<html>
+<head>
+    <script src="https://code.jquery.com/jquery-1.8.3.min.js"
+            crossorigin="anonymous"></script>
+    <script>
+        function RunDemo() {
+
+
+            var clickspexReport = {
+  cipID: 16,
+  correctness: true,
+  email: "deepak.kumar@sapple.co.in",
+  filters: [107, 108],
+  greyBG: false,
+  generateHeatmap: false,
+  allSelect: true,
+  firstSelect: false,
+  secondSelect: false,
+  thirdSelect: false 
+}
+
+             //var webMethod ="http://testadmin.hotspex.com/Packspex/Px.asmx/";                                // This Works!
+           var webMethod = "http://testadmin.hotspex.com/Packspex/Px.asmx/";
+        $.ajax({
+            type: "POST",
+            url: webMethod + "TFReportExport",
+            data: JSON.stringify({ "input": clickspexReport }),
+            contentType: "application/json",
+            dataType: "json",
+
+            success: function (msg) {
+                console.log(JSON.stringify(msg));
+            },
+            error: function(e){
+            }
+        });
+    }
+    </script>
+
+    <title></title>
+</head>
+<body>
+    <button onclick="RunDemo()">Start</button>
+    <div id="div1"></div>
+</body>
+</html>
+

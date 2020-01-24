@@ -1,0 +1,32 @@
+﻿<html>
+<head>
+    <script src="https://code.jquery.com/jquery-1.8.3.min.js"
+            crossorigin="anonymous"></script>
+    <script>
+        function RunDemo() {
+            var webMethod = "http://awesome-staging.hotspex.com/HSXAdmin.asmx/";                      // This Works!http://testapps.hotspex.com/EXT/IAT/IATService.svc/
+            //var webMethod = "http://localhost:20326/HSXAdmin.asmx/";http://localhost:4487/
+            $.ajax({
+                type: "get",
+                url: "http://testapps.hotspex.com/EXT/IAT/IATService.svc/IATDetails?projectID=72",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                crossDomain: true,
+                processData: true,
+                success: function (data) {
+                    $("#home").html(data);
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert(XMLHttpRequest.statusText + " errorThrown project: " + errorThrown);
+                }
+            });
+    }
+    </script>
+
+    <title></title>
+</head>
+<body>
+    <button onclick="RunDemo()">Start</button>
+    <div id="home"></div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+﻿<html>
+<head>
+    <script src="https://code.jquery.com/jquery-1.8.3.min.js"
+            crossorigin="anonymous"></script>
+    <script>
+        function RunDemo() {
+
+
+            var userData = {
+                cipID: 2,
+                email: "deepak.kumar@sapple.co.in",
+                filters: [10],
+                heatmap: true,
+                heatmaptypes: [4],
+                greyBG: false,
+                facingReport: false,
+                topLineReport: false,
+                keyProductReport: false,
+                clientBrands: [],
+                timingOptions: []
+            };
+            //{"cipID":2,"email":"vivian.liu@hotspex.com","filters":[10],"heatmap":true,"heatmaptypes":[1,2,3,4,5,6],"greyBG":false,"facingReport":true,"topLineReport":true,"keyProductReport":false,"clientBrands":[],"timingOptions":[]}
+
+            var webMethod ="http://testadmin.hotspex.com/Packspex/Px.asmx/";                                // This Works!
+            //var webMethod = "http://localhost:54837/PX.asmx/";
+        $.ajax({
+            type: "POST",
+            url: webMethod + "ShopspexReportExport",
+            data: JSON.stringify({"SREObj": userData}),
+            contentType: "application/json",
+            dataType: "json",
+
+            success: function (msg) {
+                console.log(JSON.stringify(msg));
+            },
+            error: function(e){
+            }
+        });
+    }
+    </script>
+
+    <title></title>
+</head>
+<body>
+    <button onclick="RunDemo()">Start</button>
+    <div id="div1"></div>
+</body>
+</html>
+

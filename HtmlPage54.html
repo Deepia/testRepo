@@ -1,0 +1,51 @@
+﻿<html>
+<head>
+    <script src="https://code.jquery.com/jquery-1.8.3.min.js"
+            crossorigin="anonymous"></script>
+    <script>
+        function uploadProducts() {
+            //url: "http://testapps.hotspex.com/extn/packspexws/pxservicefe.asmx/UploadFilter",
+            //url: "http://localhost:33267/PxServiceFE.asmx/UploadFilter",
+                //e.preventDefault();
+                var data = new FormData();
+                var files = $("#fileUpload").get(0).files;
+                data.append("cipID", 1);
+                if (files.length > 0) {
+                    data.append("UploadedExcel", files[0]);
+                }
+                $.ajax({
+                    type: "POST",
+                    url: "http://testapps.hotspex.com/extn/packspexws/pxservicefe.asmx/UploadFilter",
+                    contentType: false,
+                    processData: false,
+                    async: false,
+                    timeout: 30000,
+                    data: data,
+                    success: function (data) {
+                        alert("data: " + JSON.stringify(data));
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        alert("error: " + XMLHttpRequest.statusText + "   textStatus:-" + textStatus + "    errorThrown:-" + errorThrown);
+                    }
+                });
+
+        }
+    </script>
+
+    <title></title>
+</head>
+<body>
+
+    <form method="post" action="javascript:;" accept-charset="utf-8" id="fileinfo" name="fileinfo" enctype="multipart/form-data">
+        <div>
+            <label for="fileUpload">
+                Select File to Upload:
+            </label> <input id="fileUpload" type="file" />
+
+            <input id="btnUploadFile" type="button" value="Upload File" onclick="uploadProducts()" />
+        </div>
+    </form>
+    </body>
+</html>
+
+   

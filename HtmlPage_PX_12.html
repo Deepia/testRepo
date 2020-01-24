@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    
+</head>
+<body>
+    <form method="post" action="javascript:;" accept-charset="utf-8" id="fileinfo" name="fileinfo" enctype="multipart/form-data">
+        <div>
+            <label for="fileUpload">
+                Select File to Upload:
+            </label> <input id="fileUpload" type="file" />
+
+            <input id="btnUploadFile" type="button" value="Upload File" />
+        </div>
+    </form>
+
+</body>
+<script src="https://code.jquery.com/jquery-1.8.3.min.js" crossorigin="anonymous"></script>
+<script>
+        //alert('A');
+        /*"http://testadmin.hotspex.com/Packspex/Px.asmx/uploadProductExcel" */
+    $('#btnUploadFile').on('click', function (e) {
+    e.preventDefault();
+    var data = new FormData();
+    var files = $("#fileUpload").get(0).files;
+    data.append("imageID", 2);
+    data.append("adminID", 47);
+    if (files.length > 0) {
+    data.append("UploadedExcel", files[0]);
+        }
+
+        //"http://testadmin.hotspex.com/Packspex/Px.asmx/uploadProductExcel",//"http://localhost:54837/PX.asmx/uploadProductExcel",
+    $.ajax({
+    type: "POST",
+    url: "http://testadmin.hotspex.com/Packspex/Px.asmx/uploadProductExcel",//"http://testadmin.hotspex.com/Packspex/Px.asmx/uploadProductExcel",
+    contentType: false,
+    processData: false,
+    async: false,
+    timeout: 30000,
+    data:data,
+    success: function (data) {
+    alert("data: " + JSON.stringify(data));
+    },
+    error: function (XMLHttpRequest, textStatus, errorThrown) {
+    alert("error: " + XMLHttpRequest.statusText + "   textStatus:-" + textStatus + "    errorThrown:-" + errorThrown);
+    }
+    });
+
+    });
+</script>
+</html>

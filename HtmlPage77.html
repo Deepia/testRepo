@@ -1,0 +1,58 @@
+﻿<html>
+<head>
+    <script src="https://code.jquery.com/jquery-1.8.3.min.js"
+            crossorigin="anonymous"></script>
+    <script>
+        function RunDemo() {
+
+
+
+            var userData = {
+                "spexID": 12345,
+                "projectID": 1,
+                "selections": [
+                    {
+                        "selText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In hendrerit et erat rhoncus bibendum. Pellentesque consequat quam vel arcu mollis hendrerit. Quisque facilisis urna dui, et porttitor lectus hendrerit eget. Cras rhoncus eu sem eget blandit. Nulla efficitur libero nibh, eu porttitor lectus efficitur sed",
+                        "paragraphID": 23,
+                        "reaction": 1,
+                        "userComment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In hendrerit et erat rhoncus bibendum. Pellentesque consequat quam vel arcu mollis hendrerit."
+                    },
+                    {
+                        "selText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In hendrerit et erat rhoncus bibendum. Pellentesque consequat quam vel arcu mollis hendrerit. Quisque facilisis urna dui, et porttitor lectus hendrerit eget. Cras rhoncus eu sem eget blandit. Nulla efficitur libero nibh, eu porttitor lectus efficitur sed",
+                        "paragraphID": 11,
+                        "reaction": 2,
+                        "userComment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In hendrerit et erat rhoncus bibendum. Pellentesque consequat quam vel arcu mollis hendrerit."
+                    }
+                ]
+            };
+
+
+
+            
+
+            //var webMethod = "http://testapps.hotspex.com/extn/packspexws/Highlighterws.asmx/";
+            var webMethod = "http://localhost:3757/wshotspex.asmx/";
+
+            $.ajax({
+                type: "POST",
+                url: webMethod + "SaveHighlighterUser",
+                data: JSON.stringify({ "userData":userData }),
+                contentType: "application/json",
+                dataType: "json",
+
+                success: function (msg) {
+                    console.log(JSON.stringify(msg));
+                },
+                error: function(e){
+                }
+            });
+        }
+    </script>
+
+    <title></title>
+</head>
+<body>
+    <button onclick="RunDemo()">Start</button>
+    <div id="div1"></div>
+</body>
+</html>

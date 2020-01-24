@@ -1,0 +1,52 @@
+﻿<html>
+<head>
+    <script src="https://code.jquery.com/jquery-1.8.3.min.js"
+            crossorigin="anonymous"></script>
+    <script>
+        function RunDemo() {
+            var RootUserData = [
+                {
+                    "stimulusID": 1,
+                    "correctness": 0,
+                    "firstRT": 300,
+                    "RT": 560,
+                    "block": 1,
+                    "trial": 1,
+                    "sessionID": 200
+                },
+                {
+                    "stimulusID": 2,
+                    "correctness": 1,
+                    "firstRT": 300,
+                    "RT": 300,
+                    "block": 1,
+                    "trial": 2,
+                    "sessionID": 200
+                }
+            ]
+            var webMethod = "http://awesome-staging.hotspex.com/HSXAdmin.asmx/";                                // This Works!http://testapps.hotspex.com/EXT/IAT/
+            //var webMethod = "http://localhost:20326/HSXAdmin.asmx/";http://localhost:4487/
+            $.ajax({
+                type: "get",
+                url: "http://testapps.hotspex.com/EXT/IAT/IATService.svc/IATConfig?projectID=72&mode=D&spex_id=2344&scrsize=1300x800",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                crossDomain: true,
+                processData: true,
+                success: function (data) {
+                    $("#home").html(data);
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert(XMLHttpRequest.statusText + " errorThrown project: " + errorThrown);
+                }
+            });
+    }
+    </script>
+
+    <title></title>
+</head>
+<body>
+    <button onclick="RunDemo()">Start</button>
+    <div id="home"></div>
+</body>
+</html>

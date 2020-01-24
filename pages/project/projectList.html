@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/assets/css/foundation.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/app.css">
+
+    <link rel="import" href="/import/header.html">
+
+    <title>Awesome Hotspex Home</title>
+  </head>
+  <body>
+
+    <div class="topSection"></div>
+
+    <section class="filterSection">
+      <span>Filter By:</span>
+      <select name="" id="">
+        <option value="">CIP ID</option>
+        <option value="">CIP Title</option>
+        <option value="">Saleforce ID</option>
+        <option value="">RN ID</option>
+      </select>
+      <input type="text">
+      <button type="button" class="button search">search</button>
+      <button type="button" class="button add" onclick="location.href='/pages/project/projectAdd.html'">add project</button>
+    </section>
+
+    <main>
+      <table class="hover">
+        <thead>
+          <tr>
+            <th>CIP ID</th>
+            <th>CIP Title</th>
+            <th>Saleforce ID</th>
+            <th>RN ID</th>
+            <th>Created On</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>APDO Target Shelf Test</td>
+            <td>313398</td>
+            <td>p1623177286</td>
+            <td>May 31 2018</td>
+            <td>
+              <div class="small expanded button-group">
+                <a class="button secondary" href="/pages/project/toolSummary.html">Tool Summary</a>
+                <a class="button secondary" href="/pages/project/datacheck.html">Data Check</a>
+                <a class="button secondary" href="/pages/project/filterManage.html">Filter Manage</a>
+                <a class="button secondary" href="/pages/project/dataExport.html">Data Export</a>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>APDO Target Shelf Test</td>
+            <td>313398</td>
+            <td>p1623177286</td>
+            <td>May 31 2018</td>
+            <td>
+              <div class="small expanded button-group">
+                <a class="button secondary">Tool Summary</a>
+                <a class="button secondary">Data Check</a>
+                <a class="button secondary">File Manage</a>
+                <a class="button secondary">Data Export</a>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>APDO Target Shelf Test</td>
+            <td>313398</td>
+            <td>p1623177286</td>
+            <td>May 31 2018</td>
+            <td>
+              <div class="small expanded button-group">
+                <a class="button secondary">Tool Summary</a>
+                <a class="button secondary">Data Check</a>
+                <a class="button secondary">File Manage</a>
+                <a class="button secondary">Data Export</a>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>      
+    </main>
+
+    <nav aria-label="Pagination">
+      <ul class="pagination">
+        <li class="pagination-previous disabled">Previous <span class="show-for-sr">page</span></li>
+        <li class="current"><span class="show-for-sr">You're on page</span> 1</li>
+        <li><a href="#" aria-label="Page 2">2</a></li>
+        <li><a href="#" aria-label="Page 3">3</a></li>
+        <li><a href="#" aria-label="Page 4">4</a></li>
+        <li class="ellipsis" aria-hidden="true"></li>
+        <li><a href="#" aria-label="Page 12">12</a></li>
+        <li><a href="#" aria-label="Page 13">13</a></li>
+        <li class="pagination-next"><a href="#" aria-label="Next page">Next <span class="show-for-sr">page</span></a></li>
+      </ul>
+    </nav>
+
+    <script src="/assets/js/vendor/jquery.js"></script>
+    <script src="/assets/js/vendor/what-input.js"></script>
+    <script src="/assets/js/vendor/foundation.js"></script>
+    <script src="/assets/js/app.js"></script>
+
+  </body>
+</html>

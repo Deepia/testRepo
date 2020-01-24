@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-1.8.3.min.js"></script>
+    <script>
+        //var webMethod ="http://testadmin.hotspex.com/Packspex/Px.asmx/";                                // This Works!
+        var webMethod = "http://testapps.hotspex.com/EXT/Implicit/service.asmx/";
+        //var webMethod = "http://localhost:4487/service.asmx/";
+        function implicitSaveUserData() {
+            var userData = [
+
+               { "spexID": 1, "rt": 0, "primeID": -99, "testID": -29, "isCorrect": true, "roundNum": 0, "projectID": 28, "isClickable": false},
+                { "spexID": 1, "rt": 533, "primeID": -99, "testID": -28, "isCorrect": true, "roundNum": 0, "projectID": 28, "isClickable": true},
+                { "spexID": 1, "rt": 0, "primeID": -99, "testID": -29, "isCorrect": true, "roundNum": 0, "projectID": 28, "isClickable": false},
+               { "spexID": 1, "rt": 636, "primeID": -99, "testID": -28, "isCorrect": true, "roundNum": 0, "projectID": 28, "isClickable": true},
+               { "spexID": 1, "rt": 495, "primeID": 100021, "testID": -28, "isCorrect": true, "roundNum": 1, "projectID": 28, "isClickable": true},
+                { "spexID": 1, "rt": 0, "primeID": 100022, "testID": -29, "isCorrect": true, "roundNum": 1, "projectID": 28, "isClickable": false},
+                { "spexID": 1, "rt": 496, "primeID": 100022, "testID": -28, "isCorrect": true, "roundNum": 1, "projectID": 28, "isClickable": true},
+                { "spexID": 1, "rt": 0, "primeID": 100021, "testID": -29, "isCorrect": true, "roundNum": 1, "projectID": 28, "isClickable": false},
+                { "spexID": 1, "rt": 485, "primeID": 100023, "testID": -28, "isCorrect": true, "roundNum": 1, "projectID": 28, "isClickable": true},
+                { "spexID": 1, "rt": 0, "primeID": 100023, "testID": -29, "isCorrect": true, "roundNum": 1, "projectID": 28, "isClickable": false},
+                { "spexID": 1, "rt": 522, "primeID": 100021, "testID": -28, "isCorrect": true, "roundNum": 2, "projectID": 28, "isClickable": true},
+                { "spexID": 1, "rt": 0, "primeID": 100021, "testID": -29, "isCorrect": true, "roundNum": 2, "projectID": 28, "isClickable": false},
+                { "spexID": 1, "rt": 496, "primeID": 100023, "testID": 62, "isCorrect": true, "roundNum": 2, "projectID": 28, "isClickable": true},
+                { "spexID": 1, "rt": 0, "primeID": 100022, "testID": 65, "isCorrect": true, "roundNum": 2, "projectID": 28, "isClickable": false},
+                { "spexID": 1, "rt": 750, "primeID": 100022, "testID": -28, "isCorrect": true, "roundNum": 2, "projectID": 28, "isClickable": true},
+                { "spexID": 1, "rt": 1500, "primeID": 100023, "testID": 65, "isCorrect": false, "roundNum": 2, "projectID": 28, "isClickable": false},
+                { "spexID": 1, "rt": 513, "primeID": 100023, "testID": -28, "isCorrect": true, "roundNum": 2, "projectID": 28, "isClickable": true},
+                { "spexID": 1, "rt": 0, "primeID": 100022, "testID": -29, "isCorrect": true, "roundNum": 2, "projectID": 28, "isClickable": false},
+                { "spexID": 1, "rt": 0, "primeID": 100023, "testID": -29, "isCorrect": true, "roundNum": 2, "projectID": 28, "isClickable": false},
+                { "spexID": 1, "rt": 615, "primeID": 100022, "testID": 62, "isCorrect": true, "roundNum": 2, "projectID": 28, "isClickable": true},
+                { "spexID": 1, "rt": 0, "primeID": 100021, "testID": 65, "isCorrect": true, "roundNum": 2, "projectID": 28, "isClickable": false},
+                { "spexID": 1, "rt": 624, "primeID": 100021, "testID": 62, "isCorrect": true, "roundNum": 2, "projectID": 28, "isClickable": true},
+                { "spexID": 1, "rt": 1500, "primeID": 100023, "testID": 62, "isCorrect": false, "roundNum": 3, "projectID": 28, "isClickable": false},
+                { "spexID": 1, "rt": 412, "primeID": 100021, "testID": 65, "isCorrect": true, "roundNum": 3, "projectID": 28, "isClickable": true},
+                {"spexID":1,"rt":1500,"primeID":100021,"testID":62,"isCorrect":false,"roundNum":3,"projectID":28},
+                { "spexID": 1, "rt": 0, "primeID": 100021, "testID": -29, "isCorrect": true, "roundNum": 3, "projectID": 28, "isClickable": false},
+                { "spexID": 1, "rt": 443, "primeID": 100023, "testID": 65, "isCorrect": true, "roundNum": 3, "projectID": 28, "isClickable": true},
+                { "spexID": 1, "rt": 582, "primeID": 100023, "testID": -28, "isCorrect": true, "roundNum": 3, "projectID": 28, "isClickable": true},
+                { "spexID": 1, "rt": 447, "primeID": 100022, "testID": 65, "isCorrect": true, "roundNum": 3, "projectID": 28, "isClickable": true},
+                { "spexID": 1, "rt": 610, "primeID": 100022, "testID": -28, "isCorrect": true, "roundNum": 3, "projectID": 28, "isClickable": true},
+                { "spexID": 1, "rt": 0, "primeID": 100022, "testID": -29, "isCorrect": true, "roundNum": 3, "projectID": 28, "isClickable": false},
+                { "spexID": 1, "rt": 594, "primeID": 100021, "testID": -28, "isCorrect": true, "roundNum": 3, "projectID": 28, "isClickable": true},
+                { "spexID": 1, "rt": 0, "primeID": 100023, "testID": -29, "isCorrect": true, "roundNum": 3, "projectID": 28, "isClickable": false},
+                { "spexID": 1, "rt": 1500, "primeID": 100022, "testID": 62, "isCorrect": false, "roundNum": 3, "projectID": 28, "isClickable": false}
+
+
+
+
+        //          { "spexID": 12345, "rt": 1500, "primeID": -99, "testID": 2, "isCorrect": true, "roundNum": 0, "projectID": 99, "isClickable": false },
+        //{ "spexID": 12345, "rt": 465, "primeID": -99, "testID": 1, "isCorrect": true, "roundNum": 0, "projectID": 99, "isClickable": true },
+        //{ "spexID": 12345, "rt": 1500, "primeID": -99, "testID": 2, "isCorrect": true, "roundNum": 0, "projectID": 99, "isClickable": true },
+        //{ "spexID": 12345, "rt": 502, "primeID": -99, "testID": 1, "isCorrect": true, "roundNum": 0, "projectID": 99, "isClickable": false },
+        //{ "spexID": 12345, "rt": 1500, "primeID": 3, "testID": 2, "isCorrect": true, "roundNum": 1, "projectID": 99, "isClickable": false },
+        //{ "spexID": 12345, "rt": 551, "primeID": 3, "testID": 1, "isCorrect": true, "roundNum": 1, "projectID": 99, "isClickable": true },
+        //{ "spexID": 12345, "rt": 435, "primeID": 8, "testID": 1, "isCorrect": true, "roundNum": 1, "projectID": 99, "isClickable": true },
+        //{ "spexID": 12345, "rt": 1500, "primeID": 8, "testID": 2, "isCorrect": true, "roundNum": 1, "projectID": 99, "isClickable": true },
+        //{ "spexID": 12345, "rt": 395, "primeID": 3, "testID": 1, "isCorrect": true, "roundNum": 2, "projectID": 99, "isClickable": false },
+        //{ "spexID": 12345, "rt": 1500, "primeID": 3, "testID": 2, "isCorrect": true, "roundNum": 2, "projectID": 99, "isClickable": false },
+        //{ "spexID": 12345, "rt": 445, "primeID": 3, "testID": 14, "isCorrect": true, "roundNum": 2, "projectID": 99, "isClickable": true },
+        //{ "spexID": 12345, "rt": 612, "primeID": 8, "testID": 1, "isCorrect": true, "roundNum": 2, "projectID": 99, "isClickable": true },
+        //{ "spexID": 12345, "rt": 635, "primeID": 8, "testID": 14, "isCorrect": true, "roundNum": 2, "projectID": 99, "isClickable": true },
+        //{ "spexID": 12345, "rt": 1500, "primeID": 8, "testID": 19, "isCorrect": true, "roundNum": 2, "projectID": 99, "isClickable": true },
+        //{ "spexID": 12345, "rt": 596, "primeID": 3, "testID": 19, "isCorrect": false, "roundNum": 2, "projectID": 99, "isClickable": false },
+        //{ "spexID": 12345, "rt": 1500, "primeID": 8, "testID": 2, "isCorrect": true, "roundNum": 2, "projectID": 99, "isClickable": true },
+        //{ "spexID": 12345, "rt": 1500, "primeID": 3, "testID": 2, "isCorrect": true, "roundNum": 3, "projectID": 99, "isClickable": false },
+        //{ "spexID": 12345, "rt": 672, "primeID": 8, "testID": 19, "isCorrect": true, "roundNum": 3, "projectID": 99, "isClickable": true },
+        //{ "spexID": 12345, "rt": 1500, "primeID": 8, "testID": 2, "isCorrect": true, "roundNum": 3, "projectID": 99, "isClickable": false },
+        //{ "spexID": 12345, "rt": 540, "primeID": 8, "testID": 1, "isCorrect": true, "roundNum": 3, "projectID": 99, "isClickable": true },
+        //{ "spexID": 12345, "rt": 944, "primeID": 3, "testID": 19, "isCorrect": true, "roundNum": 3, "projectID": 99, "isClickable": true },
+        //{ "spexID": 12345, "rt": 390, "primeID": 3, "testID": 1, "isCorrect": true, "roundNum": 3, "projectID": 99, "isClickable": true },
+        //{ "spexID": 12345, "rt": 774, "primeID": 3, "testID": 14, "isCorrect": false, "roundNum": 3, "projectID": 99, "isClickable": true },
+        //{ "spexID": 12345, "rt": 407, "primeID": 8, "testID": 14, "isCorrect": false, "roundNum": 3, "projectID": 99, "isClickable": true }
+
+
+
+
+            ]
+            var StringifiedContent = JSON.stringify({ 'userData': userData });
+            $.ajax({
+                type: "POST",
+                url: webMethod + "implicitSaveUserData",//Path to webservice
+                data: StringifiedContent,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (msg) {
+                    console.log(JSON.stringify(msg));
+                }
+            });
+        }
+
+
+    </script>
+
+    <title></title>
+</head>
+<body>
+    <button onclick="implicitSaveUserData()">Start</button>
+    <div id="div1"></div>
+</body>
+</html>
+

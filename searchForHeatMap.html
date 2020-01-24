@@ -1,0 +1,74 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>packws FT Test</title>
+</head>
+
+<body>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+    <script>
+
+        // const axios = require('axios');  http://localhost:3757/kyzappservice.svc/    http://map-staging.hotspex.com/KYZAppService.svc/
+        let api = axios.create({
+            baseURL: 'http://map-staging.hotspex.com/KYZAppService.svc/',
+            timeout: 150000,
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            }
+        });
+
+        api.post('SearchforheatmapV2', {
+            "accountID": 5,
+            "keywords": "emoti"
+        })
+          .then((response) => {
+              var obj = JSON.parse(response.data.SearchforheatmapV2Result.data);
+              console.log(response.data.SearchforheatmapV2Result.data);
+          }
+        //api.post('ExportFlatMapV2', {
+        //    //params: { //For get uncomment it
+        //    "ProjectID": 1346,
+        //    "HeatmapIDs": "48164,48165",
+        //    "BackgroundImage": "Legend_V_2.png",
+        //    "languageID": 1,
+        //    "AttributeLabels": true,
+        //    "Legend": false,
+        //    "onlyDriverLabels": false,
+        //    "fileType": "ppt",
+        //    "heatType": 3,
+        //    "multiplier": 1,
+        //    "fileName": "Test_[timestamp]",
+        //    "primaryHeatmapID": "48163",
+        //    "zones": ""
+
+        //    //}
+        //})
+        //  .then((response) => {
+        //      //console.log(response.ExcelDataExportResult.data);
+        //      //console.log(response.data.ExcelDataExportResult.data.FilePath);
+        //      var obj = JSON.parse(response.data.ExportFlatMapV2Result.data);
+        //      console.log(response.data.ExportFlatMapV2Result.data);
+        //      //window.location = obj.FilePath;
+        //  }
+        , (error) => {
+
+          }).catch(error=> {
+              console.log('fail2: ' + error)
+          });
+
+
+
+
+
+
+    </script>
+
+
+</body>
+</html>
